@@ -1,0 +1,47 @@
+WHALEPRINT — COMPLETE ONE-FILE WEBSITE / CLOUDFLARE WORKERS
+=========================================================
+
+This package contains exactly TWO files:
+  worker.js      Complete WhalePrint website + all images + Solana market scanner API
+  wrangler.jsonc Cloudflare Workers configuration
+
+No public/ folder, src/ folder, functions/ folder, package install or build is needed.
+
+UPDATE YOUR EXISTING GITHUB REPOSITORY:
+  1. Extract WhalePrint-One-File-Ready.zip on your computer.
+  2. Open https://github.com/2kslime2k/whaleprint-site
+  3. Select Add file -> Upload files.
+  4. Drag BOTH files from the extracted folder: worker.js AND wrangler.jsonc.
+  5. Commit to the main branch, replacing old versions when prompted.
+  6. In Cloudflare leave the Root directory empty (repository root),
+     Build command: exit 0, Deploy command: npx wrangler deploy.
+  7. Your existing Cloudflare project should automatically redeploy.
+
+ALTERNATIVE IF GITHUB WON'T REPLACE EXISTING FILES:
+  Open each existing file, select Edit (pencil), and replace its contents with the
+  respective new file contents; commit each change. Or use GitHub Desktop to commit both.
+
+TEST AFTER A SUCCESSFUL DEPLOYMENT:
+  https://YOUR-WORKER.workers.dev/api/health  -> {"ok":true,...}
+  https://YOUR-WORKER.workers.dev/            -> WhalePrint home page
+  Click TRY AN EXAMPLE BONK -> live market scan (needs DEX Screener access).
+
+FEATURES:
+  The approved whale SVG artwork, X social banners, icon, responsive glass-styled
+  homepage, JavaScript scanner and report export are embedded in worker.js.
+  The API is read-only and fetches public DEX Screener data (no wallet connection).
+
+IMPORTANT:
+  The project is a research prototype. It does not verify wallet concentration,
+  insiders or safety, and no $WPRINT token has been created.
+  A working deployment to YOUR Cloudflare account has not been verified by us.
+  Deployed runtime access to DEX Screener must be tested after going live.
+
+TROUBLESHOOTING:
+  If Cloudflare still reports a missing public/ directory, you uploaded the old
+  wrangler.jsonc. The new one MUST NOT contain an "assets" or "directory" field.
+  If it reports missing worker.js, ensure both files appear next to each other
+  at the GitHub repository root (not inside a nested folder).
+
+Local offline inspection: You may open worker.js in a code editor. You cannot
+open it by double-clicking as an HTML page; deployment serves the website.
